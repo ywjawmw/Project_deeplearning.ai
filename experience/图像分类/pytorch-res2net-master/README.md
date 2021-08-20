@@ -6,6 +6,16 @@ This repository contains code for **Res2Net** based on [Res2Net: A New Multi-sca
 - PyTorch 1.0
 
 ## Training
+### CIFAR-10 --> change
+- Res2NeXt-50:
+```
+python train.py --dataset cifar10 --arch res2net50_cifar10 --gpu 1
+```
+- Res2NeXt-29, 6cx24wx4scale-SE:
+```
+python train.py --dataset cifar10 --arch res2next29_6cx24wx4scale_se
+```
+
 ### CIFAR-100
 - Res2NeXt-29, 6cx24wx4scale:
 ```
