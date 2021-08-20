@@ -37,6 +37,7 @@ def parse_args():
     parser.add_argument('--momentum', default=0.9, type=float)
     parser.add_argument('--weight-decay', default=5e-4, type=float)
     parser.add_argument('--nesterov', default=False, type=str2bool)
+    parser.add_argument('--gpu', default=0, type=int)
 
     args = parser.parse_args()
 
@@ -47,13 +48,13 @@ def train(args, train_loader, model, criterion, optimizer, epoch, scheduler=None
     losses = AverageMeter()
     acc1s = AverageMeter()
     acc5s = AverageMeter()
-
+    gpu = args.gpu
     model.train()
 
     for i, (input, target) in tqdm(enumerate(train_loader), total=len(train_loader)):
         # print("len(train_loader)", len(train_loader))
-        input = input.cuda()
-        target = target.cuda()
+        input = input.cuda(gpu)
+        target = target.cuda(gpu)
 
         output = model(input)
         # print("input shape:", input.shape)
@@ -85,14 +86,14 @@ def validate(args, val_loader, model, criterion):
     losses = AverageMeter()
     acc1s = AverageMeter()
     acc5s = AverageMeter()
-
+    gpu = args.gpu
     # switch to evaluate mode
     model.eval()
 
     with torch.no_grad():
         for i, (input, target) in tqdm(enumerate(val_loader), total=len(val_loader)):
-            input = input.cuda()
-            target = target.cuda()
+            input = input.cuda(gpu)
+            target = target.cuda(gpu)
 
             output = model(input)
             loss = criterion(output, target)
@@ -114,7 +115,7 @@ def validate(args, val_loader, model, criterion):
 
 def main():
     args = parse_args()
-
+    gpu = args.gpu
     if args.name is None:
         args.name = '%s' %args.arch
 
@@ -132,7 +133,7 @@ def main():
 
     joblib.dump(args, 'models/%s/args.pkl' %args.name)
 
-    criterion = nn.CrossEntropyLoss().cuda()
+    criterion = nn.CrossEntropyLoss().cuda(gpu)
 
     cudnn.benchmark = True
 
@@ -253,7 +254,7 @@ def main():
 
     # create model
     model = res2net.__dict__[args.arch]()
-    model = model.cuda()
+    model = model.cuda(gpu)
 
     optimizer = optim.SGD(filter(lambda p: p.requires_grad, model.parameters()), lr=args.lr,
             momentum=args.momentum, weight_decay=args.weight_decay)
