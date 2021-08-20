@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-__all__ = ['ImageNetRes2Net', 'res2net50', 'res2net101',
+__all__ = ['ImageNetRes2Net', 'res2net50', 'res2net50_cifar10', 'res2net101',
            'res2net152', 'res2next50_32x4d', 'se_res2net50',
            'CifarRes2Net', 'res2next29_6cx24wx4scale',
            'res2next29_8cx25wx4scale', 'res2next29_6cx24wx6scale',
@@ -239,6 +239,13 @@ def res2net50(**kwargs):
     return model
 
 
+def res2net50_cifar10(**kwargs):
+    """Constructs a Res2Net-50 model with cifar 10.
+    """
+    model = CifarRes2Net([3, 3, 3], **kwargs)
+    return model
+
+
 def res2net101(**kwargs):
     """Constructs a ResNet-101 model.
     """
@@ -294,10 +301,11 @@ def res2next29_6cx24wx6scale(**kwargs):
     model = CifarRes2Net([3, 3, 3], groups=6, width=24, scales=6, **kwargs)
     return model
 
+
 def res2next29_6cx24wx4scale_se(**kwargs):
     """Constructs a Res2NeXt-29, 6cx24wx4scale-SE model.
     """
-    model = CifarRes2Net([3, 3, 3], groups=6, width=24, scales=4, se=True, **kwargs)
+    model = CifarRes2Net([3, 3, 3], se=True, **kwargs)
     return model
 
 
