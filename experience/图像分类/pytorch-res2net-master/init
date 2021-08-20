@@ -11,7 +11,7 @@
 with ResNext net: 维度基数（Dimension cardinality），主要是利用分组卷积，将输出的通道维数平均分为c组，分别进行卷积，
 最后通过concat进行连接，使输入维度和输出维度相同。 代码中的group >1
 
-with SENet: add SE module after 1 × 1 conv layer output
+with SENet: add SE module after 1 × 1 conv layer output.
 
 reference:
 https://blog.csdn.net/ruoruojiaojiao/article/details/89074763
