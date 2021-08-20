@@ -1,1 +1,18 @@
 使用res2net模型实现cifar 10 的图像分类
+
+在ResNet的基础上进行修改，在一个ResNet块中，使用分层的残差块，使得在一个卷积中拥有不同的感受野，引入一个新的参数 scales(s)--比例尺寸的控制参数
+(将输入通道数平均等分为多个特征通道，s越大表明多尺度能力越强。)
+首先对经过1x1输出后的特征图按通道数均分为s（图中s=4）块，每一部分是xi，i ∈ {1,2,...,s}。
+每一个xi都会具有相应的3x3卷积，由Ki（）表示。我们用yi表示Ki（）的输出。
+特征子集xi与Ki-1（）的输出相加，然后送入Ki（）。为了在增加s的同时减少参数，我们省略了x1的3×3卷积，这样也可以看做是对特征的重复利用。
+最后将这四个输出进行融合并经过一个1x1的卷积。这种先拆分后融合的策略能够使卷积可以更高效的处理特征。
+
+与其他网络模块进行结合：
+with ResNext net: 维度基数（Dimension cardinality），主要是利用分组卷积，将输出的通道维数平均分为c组，分别进行卷积，
+最后通过concat进行连接，使输入维度和输出维度相同。 代码中的group >1
+
+with SENet: add SE module after 1 × 1 conv layer output
+
+reference:
+https://blog.csdn.net/ruoruojiaojiao/article/details/89074763
+
