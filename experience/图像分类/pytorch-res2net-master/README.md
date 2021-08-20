@@ -7,7 +7,7 @@ This repository contains code for **Res2Net** based on [Res2Net: A New Multi-sca
 
 ## Training
 ### CIFAR-10 --> change
-- Res2NeXt-50:
+- Res2Net-50:
 ```
 python train.py --dataset cifar10 --arch res2net50_cifar10 --gpu 1
 ```
