@@ -1,0 +1,12 @@
+name: res2next29_6cx24wx6scale
+dataset: cifar10
+imagenet_dir: None
+arch: res2next29_6cx24wx6scale
+epochs: 300
+lr: 0.1
+milestones: 150,225
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+nesterov: False
+gpu: 2
