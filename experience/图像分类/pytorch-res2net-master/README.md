@@ -1,4 +1,4 @@
-# PyTorch implementation of Res2Net, ResNet and ResNext, for image classfication with cifar 10
+# PyTorch implementation of Res2Net, ResNet and ResNext, for image classification with cifar 10
 you can run these models with cifar 100 and imagenet
 This repository contains code for **Res2Net** based on [Res2Net: A New Multi-scale Backbone Architecture](https://arxiv.org/abs/1811.09030) implemented in PyTorch.
 
