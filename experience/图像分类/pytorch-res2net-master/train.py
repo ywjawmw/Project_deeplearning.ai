@@ -14,7 +14,7 @@ from torch.optim import lr_scheduler
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 
-from utils import *
+from utils import str2bool, AverageMeter, accuracy
 import res2net
 
 
@@ -196,7 +196,7 @@ def main():
             transform=transform_train)
         train_loader = torch.utils.data.DataLoader(
             train_set,
-            batch_size=64,
+            batch_size=48,
             shuffle=True,
             num_workers=4)
 
@@ -207,7 +207,7 @@ def main():
             transform=transform_test)
         test_loader = torch.utils.data.DataLoader(
             test_set,
-            batch_size=64,
+            batch_size=48,
             shuffle=False,
             num_workers=4)
 
