@@ -11,9 +11,23 @@ This repository contains code for **Res2Net** based on [Res2Net: A New Multi-sca
 ```
 python train.py --dataset cifar10 --arch res2net50_cifar10 --gpu 1
 ```
-- Res2NeXt-29, 6cx24wx4scale-SE:
+- Res2NeXt-29, 6cx24wx4scale:
 ```
-python train.py --dataset cifar10 --arch res2next29_6cx24wx4scale_se
+python train.py --dataset cifar10 --arch res2next29_6cx24wx4scale
+```
+
+- Res2NeXt-29, 6cx24wx6scale:
+```
+python train.py --dataset cifar10 --arch res2next29_6cx24wx6scale --gpu 2
+```
+
+- ResNet 50:
+```
+python train_res_net_next.py --gpu x(int)
+```
+- Res2NeXt-29, 6cx24w:
+```
+python train_res_net_next.py --model ResNext --gpu x(int)
 ```
 
 ### CIFAR-100
