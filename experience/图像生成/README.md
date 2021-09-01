@@ -25,10 +25,12 @@ Pytorch implementation of Generative Adversarial Networks (GAN) [1] and Deep Con
 
 <table align='center'>
 <tr align='center'>
-<td> DCGAN </td>
+<td> DCGAN result</td>
+<td> DCGAN loss </td>
 </tr>
 <tr>
 <td><img src = 'CelebA_DCGAN_results/generation_animation.gif'>
+<td><img src = 'CelebA_DCGAN_results/CelebA_DCGAN_train_hist.png'>
 </tr>
 </table>
 
