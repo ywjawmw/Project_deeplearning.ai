@@ -34,7 +34,7 @@ Pytorch implementation of Generative Adversarial Networks (GAN) [1] and Deep Con
 </tr>
 </table>
 
-* CelebA vs Generated images
+* CelebA
 
 <table align='center'>
 <tr align='center'>
