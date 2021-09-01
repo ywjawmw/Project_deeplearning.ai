@@ -46,7 +46,7 @@ Pytorch implementation of Generative Adversarial Networks (GAN) [1] and Deep Con
 </table>
 
 * Learning Time
-  * CelebA DCGAN - Avg. per epoch: 732.54 sec; total 20 epochs ptime: 14744.66 sec
+  * CelebA DCGAN - Avg per epoch ptime: 753.31, total 20 epochs ptime: 15120.60
 
 ## Development Environment
 
