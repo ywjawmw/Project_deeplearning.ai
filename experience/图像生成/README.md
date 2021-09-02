@@ -73,3 +73,4 @@ Pytorch implementation of Generative Adversarial Networks (GAN) [1] and Deep Con
 (Full paper: https://arxiv.org/pdf/1511.06434.pdf)
 
 [3] Liu, Ziwei, et al. "Deep learning face attributes in the wild." Proceedings of the IEEE International Conference on Computer Vision. 2015.
+[4] https://github.com/znxlwm/pytorch-MNIST-CelebA-GAN-DCGAN
